@@ -3,7 +3,7 @@ export default {
     primary: '#0c080e',
     secondary: '#fffffb',
     gray100: '#d4e0ec',
-    black100: '#373535',
+    black100: '#F8F8F8',
   },
   fonts: {
     robotoLight: 'Roboto-Light',

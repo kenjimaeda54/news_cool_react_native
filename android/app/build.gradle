@@ -120,4 +120,14 @@ dependencies {
     }
 }
 
+
+project.ext.vectoricons = [
+        iconFontNames: [ 'Fontisto.ttf', 'Octicons.ttf','Feather.ttf','FontAwesome6_Regular.ttf','Entypo.ttf','FontAwesome5_Brands.ttf',
+                         'MaterialCommunityIcons.ttf','AntDesign.ttf','Foundation.ttf',
+                         'Ionicons.ttf','FontAwesome5_Solid.ttf','FontAwesome5_Regular.ttf','FontAwesome.ttf',
+                         'Zocial.ttf','EvilIcons.ttf','FontAwesome6_Solid.ttf','SimpleLineIcons.ttf','FontAwesome6_Brands.ttf','MaterialIcons.ttf'
+             ] // Name of the font files you want to copy
+]
+
+apply from: file("../../node_modules/react-native-vector-icons/fonts.gradle");
 apply from: file("../../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesAppBuildGradle(project)
