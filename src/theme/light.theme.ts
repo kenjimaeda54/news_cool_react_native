@@ -1,7 +1,7 @@
 export default {
   colors: {
-    primary: '#fffffb',
-    secondary: '#0c080e',
+    primary: '#F5F5F5F5',
+    secondary: '#FFFFFF',
     gray100: '#d4e0ec',
     black100: '#555555',
   },
@@ -14,4 +14,4 @@ export default {
     montserratMedium: 'Montserrat-Medium',
     montserratSemiBold: 'Montserrat-SemiBold',
   },
-};
+}
