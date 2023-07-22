@@ -1,10 +1,13 @@
-import HomeScreen from './src/screens/home/HomeScreen'
-import ThemeProviderColorScheme from './src/themes/ThemeProviderColorScheme'
+import { NavigationContainer } from '@react-navigation/native'
+import ThemeProviderColorScheme from '@/themes/ThemeProviderColorScheme'
+import RoutesApp from '@/routes/routes.app'
 
 export default function App() {
   return (
     <ThemeProviderColorScheme>
-      <HomeScreen />
+      <NavigationContainer>
+        <RoutesApp />
+      </NavigationContainer>
     </ThemeProviderColorScheme>
   )
 }

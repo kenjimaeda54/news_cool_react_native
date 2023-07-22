@@ -1,4 +1,4 @@
-import { ArticlesModel } from '@/models/TopHeadlinesModel'
+import { ArticlesModel } from '@/models/top_head_lines'
 import * as Styles from './cardTopHeadlines.style'
 import { Dimensions } from 'react-native'
 import FastImage from 'react-native-fast-image'

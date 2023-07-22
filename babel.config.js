@@ -13,6 +13,7 @@ module.exports = {
           '@/global': './src/global',
           '@/utils': './src/utils',
           '@/themes': './src/themes',
+          '@/models': './src/models',
           '@/mock': './src/mock',
           '@/view_models': './src/view_models',
           '@/services': './src/services',
@@ -32,4 +33,4 @@ module.exports = {
       },
     ],
   ],
-};
+}
