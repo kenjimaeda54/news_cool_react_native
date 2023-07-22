@@ -1,9 +1,13 @@
 import { useTheme } from '@emotion/react'
 import * as Styles from './home.styles'
 import useHomeViewModel from '@/view_models/useHomeViewModel'
-import { FlatList } from 'react-native'
+import { Appearance, FlatList, Text, View } from 'react-native'
 import { mockTopHeadlines } from '@/mock/topHeadlines'
 import CardTopHeadlines from '@/components/card_top_headlines/CardTopHeadlines'
+import ListHeader from '@/components/list_header_top_headlines/ListHeaderTopHeadlines'
+import { mockDataCategories } from '@/mock/dataCategories'
+import ListExploreCategory from '@/components/list_explore_category/ListExploreCategory'
+import { ConstantsUtils } from '@/utils/constants'
 
 export default function HomeScreen() {
   const {
@@ -12,41 +16,86 @@ export default function HomeScreen() {
     valueInput,
     returnPaddingIfPlataformIos,
     setValueInput,
+    returnColorText,
   } = useHomeViewModel()
   const { colors } = useTheme()
+  const colorScheme = Appearance.getColorScheme()
 
   return (
-    <Styles.Container>
-      <Styles.WrapViewInput height={inputHeight + 7}>
-        <Styles.IconSearch
-          name='search'
-          size={15}
-          color={colors.black100}
-        />
-        <Styles.InputSearch
-          height={inputHeight}
-          accessibilityRole='search'
-          multiline
-          value={valueInput}
-          style={{
-            paddingVertical: returnPaddingIfPlataformIos(),
-          }}
-          onChangeText={setValueInput}
-          onContentSizeChange={(content) =>
-            handleHeightInput(
-              content.nativeEvent.contentSize.height + 7
-            )
-          }
-          placeholder='Search article'
-        />
-      </Styles.WrapViewInput>
-      <Styles.Title>Hottest News</Styles.Title>
-      <FlatList
-        data={mockTopHeadlines.articles}
-        horizontal
-        keyExtractor={(item, index) => `${item.source.id}-${index}`}
-        renderItem={({ item }) => <CardTopHeadlines data={item} />}
-      />
-    </Styles.Container>
+    <FlatList
+      data={mockTopHeadlines.articles}
+      testID={ConstantsUtils.testIdFlatlistNews}
+      style={{
+        flex: 1,
+        backgroundColor: colors.primary,
+      }}
+      contentContainerStyle={{
+        paddingHorizontal: 15,
+      }}
+      ListHeaderComponent={
+        <>
+          <ListHeader
+            input={
+              <Styles.WrapViewInput height={inputHeight + 7}>
+                <Styles.IconSearch
+                  name='search'
+                  size={15}
+                  color={colors.black100}
+                />
+                <Styles.InputSearch
+                  height={inputHeight}
+                  accessibilityRole='search'
+                  multiline
+                  value={valueInput}
+                  style={{
+                    paddingVertical: returnPaddingIfPlataformIos(),
+                  }}
+                  onChangeText={setValueInput}
+                  placeholderTextColor={colors.secondary}
+                  onContentSizeChange={(content) =>
+                    handleHeightInput(
+                      content.nativeEvent.contentSize.height + 7
+                    )
+                  }
+                  placeholder='Search article'
+                />
+              </Styles.WrapViewInput>
+            }
+          />
+          <Styles.Title>Explore</Styles.Title>
+          <FlatList
+            data={mockDataCategories}
+            showsHorizontalScrollIndicator={false}
+            style={{
+              marginVertical: 20,
+            }}
+            horizontal
+            renderItem={({ item }) => (
+              <ListExploreCategory
+                uriImage={item.uriImage}
+                title={
+                  <Styles.TitleTopCard
+                    numberOfLines={1}
+                    style={{
+                      color: returnColorText(colorScheme),
+                      textShadowColor: '#000',
+                      textShadowRadius: 16,
+                      textShadowOffset: {
+                        width: 0,
+                        height: 12,
+                      },
+                    }}>
+                    {item.title}
+                  </Styles.TitleTopCard>
+                }
+              />
+            )}
+          />
+        </>
+      }
+      showsVerticalScrollIndicator={false}
+      keyExtractor={(item, index) => `${item.source.id}-${index}`}
+      renderItem={({ item }) => <CardTopHeadlines data={item} />}
+    />
   )
 }

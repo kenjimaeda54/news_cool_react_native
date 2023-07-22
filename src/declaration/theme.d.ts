@@ -7,6 +7,7 @@ declare module '@emotion/react' {
       secondary: string;
       gray100: string;
       black100: string;
+      white: string;
     };
     fonts: {
       robotoLight: string;
