@@ -35,32 +35,22 @@ export default function HomeScreen() {
       ListHeaderComponent={
         <>
           <ListHeader
-            input={
-              <Styles.WrapViewInput height={inputHeight + 7}>
-                <Styles.IconSearch
-                  name='search'
-                  size={15}
-                  color={colors.black100}
-                />
-                <Styles.InputSearch
-                  height={inputHeight}
-                  accessibilityRole='search'
-                  multiline
-                  value={valueInput}
-                  style={{
-                    paddingVertical: returnPaddingIfPlataformIos(),
-                  }}
-                  onChangeText={setValueInput}
-                  placeholderTextColor={colors.secondary}
-                  onContentSizeChange={(content) =>
-                    handleHeightInput(
-                      content.nativeEvent.contentSize.height + 7
-                    )
-                  }
-                  placeholder='Search article'
-                />
-              </Styles.WrapViewInput>
+            testID={ConstantsUtils.testIdHeaderFlatlist}
+            inputHeight={inputHeight}
+            accessibilityRole='search'
+            multiline
+            value={valueInput}
+            style={{
+              paddingVertical: returnPaddingIfPlataformIos(),
+            }}
+            onChangeText={setValueInput}
+            placeholderTextColor={colors.secondary}
+            onContentSizeChange={(content) =>
+              handleHeightInput(
+                content.nativeEvent.contentSize.height + 7
+              )
             }
+            placeholder='Search article'
           />
           <Styles.Title>Explore</Styles.Title>
           <FlatList

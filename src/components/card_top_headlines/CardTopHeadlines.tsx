@@ -1,11 +1,11 @@
 import { ArticlesModel } from '@/models/top_head_lines'
 import * as Styles from './cardTopHeadlines.style'
-import { Dimensions } from 'react-native'
+import { Dimensions, TouchableOpacityProps } from 'react-native'
 import FastImage from 'react-native-fast-image'
 import formatDateNow from '@/utils/formatDateNow'
 import { ConstantsUtils } from '@/utils/constants'
 
-interface ICardTopHeadlines {
+interface ICardTopHeadlines extends TouchableOpacityProps {
   data: ArticlesModel
 }
 
@@ -13,9 +13,11 @@ const { width } = Dimensions.get('screen')
 
 export default function CardTopHeadlines({
   data,
+  ...rest
 }: ICardTopHeadlines) {
   return (
     <Styles.Container
+      {...rest}
       style={{
         shadowColor: '#000',
         shadowOffset: {
@@ -36,7 +38,7 @@ export default function CardTopHeadlines({
 
       <Styles.ImageWrap>
         <Styles.ImageTop
-        testID={ConstantsUtils.testIdImageTopCardTopHeadlines}
+          testID={ConstantsUtils.testIdImageTopCardTopHeadlines}
           source={{
             uri: data.urlToImage ?? '',
             priority: FastImage.priority.high,

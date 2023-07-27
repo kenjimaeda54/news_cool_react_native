@@ -4,23 +4,19 @@ import FastImage from 'react-native-fast-image'
 
 const { width } = Dimensions.get('screen')
 
-export const Container = styled.View`
+export const Container = styled.TouchableOpacity`
   flex-direction: row;
   background-color: ${({ theme }) => theme.colors.white};
   border-radius: 7px;
-  height: 130px;
-  margin: 20px 0px;
+  height: 140px;
   justify-content: space-between;
-  padding: 10px 15px;
+  margin: 20px 15px;
 `
 
-export const ImageWrap = styled.View`
-  width: 40%;
-  height: 100%;
-`
 export const WrapContent = styled.View`
   justify-content: space-between;
-  width: 50%;
+  width: 60%;
+  padding: 10px 15px;
 `
 
 export const TopContent = styled.View`
@@ -33,6 +29,7 @@ export const Category = styled.Text`
   font-size: 15px;
   line-height: 18px;
   color: ${({ theme }) => theme.colors.secondary};
+  width: 80%;
 `
 
 export const Date = styled.Text`
@@ -42,13 +39,19 @@ export const Date = styled.Text`
   color: ${({ theme }) => theme.colors.secondary};
 `
 
-export const ImageTop = styled(FastImage)({
-  height: '100%',
-  width: '100%',
-  padding: 0,
-  borderRadius: 7,
-  margin: 0,
-})
+export const ImageWrap = styled.View`
+  height: 100%;
+  flex: 1;
+`
+
+export const ImageTop = styled(FastImage)`
+  height: 100%;
+  width: 100%;
+  padding: 0px;
+  border-radius: 7px;
+  margin: 0px;
+  background-color: ${({ theme }) => theme.colors.secondary};
+`
 
 export const CategoryImg = styled(Text)({
   marginTop: 20,

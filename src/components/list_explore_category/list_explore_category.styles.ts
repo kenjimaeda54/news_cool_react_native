@@ -1,15 +1,11 @@
 import styled from '@emotion/native'
+import { Dimensions } from 'react-native'
 import FastImage from 'react-native-fast-image'
 
-interface ITitle {
-  isDark: boolean
-}
+
 
 export const Container = styled.View`
-  width: 90px;
-  height: 90px;
-  border-radius: 45px;
-  margin-right: 20px;
+  margin-left: 15px;
 `
 
 export const Image = styled(FastImage)`
@@ -18,7 +14,6 @@ export const Image = styled(FastImage)`
   bottom: 0px;
   left: 0px;
   right: 0px;
-  border-radius: 45px;
   flex: 1;
 `
 
