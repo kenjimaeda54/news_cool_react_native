@@ -1,9 +1,9 @@
-import { ArticlesModel } from '@/models/top_head_lines'
 import * as Styles from './cardTopHeadlines.style'
 import { Dimensions, TouchableOpacityProps } from 'react-native'
 import FastImage from 'react-native-fast-image'
 import formatDateNow from '@/utils/formatDateNow'
 import { ConstantsUtils } from '@/utils/constants'
+import { ArticlesModel } from '@/models/TopHeadlinesModel'
 
 interface ICardTopHeadlines extends TouchableOpacityProps {
   data: ArticlesModel

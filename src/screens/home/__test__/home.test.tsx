@@ -1,16 +1,10 @@
 import { renderHook } from '@testing-library/react-hooks'
-import { render, act, fireEvent } from '@/utils/test-utils'
+import { render, act, fireEvent, configure } from '@/utils/test-utils'
 import HomeScreen from '@/screens/home/HomeScreen'
 import useHomeViewModel from '@/view_models/useHomeViewModel'
-import { Appearance, Text } from 'react-native'
-import { ThemeProvider, useTheme } from '@emotion/react'
 import { ReactNode } from 'react'
 import { QueryClientProvider } from '@tanstack/react-query'
-import { queryClient } from '@/services/query_client'
-import lightTheme from '@/themes/light.theme'
-import { useTopHeadlinesServices } from '@/services/top_headlines.services'
-import { ConstantsUtils } from '@/utils/constants'
-import ListHeader from '@/components/list_header_top_headlines/ListHeaderTopHeadlines'
+import { mockClient } from '@/services/mock_client'
 
 describe('HomeScreen', () => {
   const mockContentSize = {
@@ -22,7 +16,7 @@ describe('HomeScreen', () => {
   }
 
   const wrapper = ({ children }: { children: ReactNode }) => (
-    <QueryClientProvider client={queryClient}>
+    <QueryClientProvider client={mockClient}>
       {children}
     </QueryClientProvider>
   )

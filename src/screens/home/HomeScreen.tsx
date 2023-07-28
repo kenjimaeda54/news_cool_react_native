@@ -29,9 +29,6 @@ export default function HomeScreen() {
         flex: 1,
         backgroundColor: colors.primary,
       }}
-      contentContainerStyle={{
-        paddingHorizontal: 15,
-      }}
       ListHeaderComponent={
         <>
           <ListHeader
@@ -56,6 +53,9 @@ export default function HomeScreen() {
           <FlatList
             data={mockDataCategories}
             showsHorizontalScrollIndicator={false}
+            contentContainerStyle={{
+              paddingRight: 20,
+            }}
             style={{
               marginVertical: 20,
             }}

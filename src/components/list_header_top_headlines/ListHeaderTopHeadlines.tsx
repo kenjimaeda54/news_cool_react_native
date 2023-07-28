@@ -16,7 +16,7 @@ export default function ListHeader({
   const { colors } = useTheme()
 
   return (
-    <View style={{ marginTop: top + 20 }}>
+    <View style={{ marginTop: top + 20, paddingHorizontal: 20 }}>
       <Styles.WrapViewInput height={inputHeight + 7}>
         <Styles.IconSearch
           name='search'

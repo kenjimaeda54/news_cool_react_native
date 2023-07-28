@@ -2,8 +2,6 @@ import styled from '@emotion/native'
 import { Dimensions, Text } from 'react-native'
 import FastImage from 'react-native-fast-image'
 
-const { width } = Dimensions.get('screen')
-
 export const Container = styled.TouchableOpacity`
   flex-direction: row;
   background-color: ${({ theme }) => theme.colors.white};
@@ -29,7 +27,7 @@ export const Category = styled.Text`
   font-size: 15px;
   line-height: 18px;
   color: ${({ theme }) => theme.colors.secondary};
-  width: 80%;
+  width: 60%;
 `
 
 export const Date = styled.Text`

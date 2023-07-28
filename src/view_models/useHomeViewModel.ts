@@ -7,7 +7,9 @@ import { useNavigation } from '@react-navigation/native'
 import { useState } from 'react'
 import { ColorSchemeName, Platform } from 'react-native'
 
-interface IUseHomeViewModel extends ITopHeadlines {
+type OmitValue = "fetchTopHeadlines" | "isSuccess"
+
+interface IUseHomeViewModel extends Omit<ITopHeadlines,OmitValue> {
   inputHeight: number
   handleHeightInput: (height: number) => void
   valueInput: string

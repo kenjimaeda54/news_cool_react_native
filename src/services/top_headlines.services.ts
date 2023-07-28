@@ -6,6 +6,8 @@ import { TopHeadlinesModel } from '@/models/TopHeadlinesModel'
 export interface ITopHeadlines {
   data: TopHeadlinesModel
   isLoading: boolean
+  fetchTopHeadlines: () => Promise<TopHeadlinesModel>
+  isSuccess: boolean
 }
 
 async function fetchTopHeadlines() {
@@ -16,7 +18,11 @@ async function fetchTopHeadlines() {
 }
 
 export function useTopHeadlinesServices(): ITopHeadlines {
-  const { data = {} as TopHeadlinesModel, isLoading } = useQuery(
+  const {
+    data = {} as TopHeadlinesModel,
+    isLoading,
+    isSuccess,
+  } = useQuery(
     [ConstantsUtils.queryIdTopHeadlines],
     fetchTopHeadlines
   )
@@ -24,5 +30,7 @@ export function useTopHeadlinesServices(): ITopHeadlines {
   return {
     data,
     isLoading,
+    fetchTopHeadlines,
+    isSuccess,
   }
 }
