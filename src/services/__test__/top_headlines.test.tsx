@@ -27,11 +27,13 @@ describe('useTopHeadlinesServices', () => {
     )
 
     act(() => {
-      result.current.fetchTopHeadlines()
+      result.current.fetchTopHeadlines(
+        result.current.category.current
+      )
     })
 
     await waitFor(() => result.current.isSuccess)
 
-    expect(result.current.data).toEqual(mockTopHeadlines)
+    expect(result.current.dataTopHeadlines).toEqual(mockTopHeadlines)
   })
 })

@@ -4,8 +4,6 @@ import {
   Appearance,
   ColorSchemeName,
   Dimensions,
-  FlatList,
-  Text,
   View,
 } from 'react-native'
 import CardTopHeadlines from '@/components/card_top_headlines/CardTopHeadlines'
@@ -24,21 +22,17 @@ const { height, width } = Dimensions.get('screen')
 
 interface IContent {
   data: IUseHomeViewModel
-  colors: IColorsTheme
-  colorScheme: ColorSchemeName
 }
 
 export default function HomeScreen() {
   const data = useHomeViewModel()
-  const { colors } = useTheme()
-  const colorScheme = Appearance.getColorScheme()
 
-  return (
-    <Content data={data} colors={colors} colorScheme={colorScheme} />
-  )
+  return <Content data={data} />
 }
 
-export function Content({ data, colors, colorScheme }: IContent) {
+export function Content({ data }: IContent) {
+  const { colors } = useTheme()
+  const colorScheme = Appearance.getColorScheme()
   return (
     <>
       {data.isLoadingHeadlines || data.isFetchingHeadlines ? (
@@ -62,10 +56,9 @@ export function Content({ data, colors, colorScheme }: IContent) {
                   accessibilityRole='search'
                   multiline
                   value={data.valueInput}
-                  style={{
-                    paddingVertical:
-                      data.returnPaddingIfPlataformIos(),
-                  }}
+                  returnPaddingIFPlataformIos={
+                    data.returnPaddingIfPlataformIos
+                  }
                   onChangeText={data.setValueInput}
                   placeholderTextColor={colors.secondary}
                   onContentSizeChange={(content) =>

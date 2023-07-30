@@ -3,10 +3,7 @@ import { render } from '@testing-library/react-native'
 import ThemeProviderColorScheme from '../themes/ThemeProviderColorScheme'
 import { ThemeProvider, useTheme } from '@emotion/react'
 import darkTheme from '@/themes/dark.theme'
-import {
-  SafeAreaProvider,
-  initialWindowMetrics,
-} from 'react-native-safe-area-context'
+import { SafeAreaProvider } from 'react-native-safe-area-context'
 import { Appearance } from 'react-native'
 import lightTheme from '@/themes/light.theme'
 import { QueryClientProvider } from '@tanstack/react-query'

@@ -1,3 +1,5 @@
+import mockSafeAreaContext from 'react-native-safe-area-context/jest/mock'
+
 export const mockNavigate = jest.fn()
 export const mockBackNavigate = jest.fn()
 export const uriWebViewJest =
@@ -60,3 +62,17 @@ jest.mock(
     }
   }
 )
+
+// jest.mock('react-native-safe-area-context', () => {
+//   return {
+//     mockSafeAreaContext,
+//     useSafeAreaInsets() {
+//       return {
+//         top: 30,
+//         bottom: 20,
+//         left: 10,
+//         right: 10,
+//       }
+//     },
+//   }
+// })

@@ -6,10 +6,12 @@ import { useTheme } from '@emotion/react'
 
 interface IListHeader extends TextInputProps {
   inputHeight: number
+  returnPaddingIFPlataformIos: () => number
 }
 
 export default function ListHeader({
   inputHeight,
+  returnPaddingIFPlataformIos,
   ...rest
 }: IListHeader) {
   const { top } = useSafeAreaInsets()
@@ -23,7 +25,14 @@ export default function ListHeader({
           size={15}
           color={colors.black100}
         />
-        <Styles.InputSearch {...rest} height={inputHeight} />
+        <Styles.InputSearch
+          {...rest}
+          height={inputHeight}
+          accessibilityRole='search'
+          style={{
+            paddingVertical: returnPaddingIFPlataformIos(),
+          }}
+        />
       </Styles.WrapViewInput>
     </View>
   )

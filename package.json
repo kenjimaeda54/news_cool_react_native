@@ -77,7 +77,7 @@
       "mocks"
     ],
     "transformIgnorePatterns": [
-      "node_modules/(?!(@react-native|react-native|react-native-vector-icons|react-native-webview)/)"
+      "node_modules/(?!(@react-native|react-native|react-native-vector-icons|react-native-webview|react-native-safe-area-context)/)"
     ],
     "coverageReporters": [
       "html"
