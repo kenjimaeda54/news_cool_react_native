@@ -2,9 +2,7 @@ import styled from '@emotion/native'
 import { Dimensions } from 'react-native'
 import FastImage from 'react-native-fast-image'
 
-
-
-export const Container = styled.View`
+export const Container = styled.TouchableOpacity`
   margin-left: 15px;
 `
 

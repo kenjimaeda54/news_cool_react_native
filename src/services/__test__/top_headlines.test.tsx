@@ -7,8 +7,8 @@ import { renderHook } from '@testing-library/react-hooks'
 import { queryClient } from '@/services/query_client'
 import { ReactNode } from 'react'
 import { act } from '@testing-library/react-native'
-import { useTopHeadlinesServices } from '../top_headlines.services'
-import { mockTopHeadlines } from '@/mock/topHeadlines'
+import { useTopHeadlinesServices } from '../useTopHeadlinesServices'
+import { mockTopHeadlines } from '@/mock/top_headlines'
 import { mockClient } from '../mock_client'
 
 describe('useTopHeadlinesServices', () => {

@@ -1,15 +1,13 @@
-import * as Styles from './cardTopHeadlines.style'
+import * as Styles from './card_top_headline.styles'
 import { Dimensions, TouchableOpacityProps } from 'react-native'
 import FastImage from 'react-native-fast-image'
-import formatDateNow from '@/utils/formatDateNow'
+import formatDateNow from '@/utils/format_date_now'
 import { ConstantsUtils } from '@/utils/constants'
-import { ArticlesModel } from '@/models/TopHeadlinesModel'
+import { ArticlesModel } from '@/models/top_headlines_model'
 
 interface ICardTopHeadlines extends TouchableOpacityProps {
   data: ArticlesModel
 }
-
-const { width } = Dimensions.get('screen')
 
 export default function CardTopHeadlines({
   data,

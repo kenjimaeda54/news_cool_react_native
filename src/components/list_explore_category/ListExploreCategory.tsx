@@ -10,7 +10,7 @@ import {
 import { ReactNode } from 'react'
 import { ConstantsUtils } from '@/utils/constants'
 
-export interface IListExploreCategory {
+export interface IListExploreCategory extends TouchableOpacityProps {
   uriImage: string
   title: ReactNode
 }
@@ -26,6 +26,7 @@ export default function ListExploreCategory({
 }: IListExploreCategory) {
   return (
     <Styles.Container
+      activeOpacity={0.8}
       style={{
         width: item,
         height: item,

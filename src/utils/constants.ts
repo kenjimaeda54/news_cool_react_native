@@ -8,4 +8,5 @@ export class ConstantsUtils {
   static queryIdTopHeadlines = 'QueryIdTopHeadlines'
   static testIdWebView = 'test id web view react native'
   static testIdHeaderFlatlist = 'test id header flatlist'
+  static queryIdCategories = "QueryIdCategories"
 }

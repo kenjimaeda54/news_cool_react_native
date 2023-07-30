@@ -1,4 +1,4 @@
-import { mockTopHeadlines } from '@/mock/topHeadlines'
+import { mockTopHeadlines } from '@/mock/top_headlines'
 import { ConstantsUtils } from '@/utils/constants'
 import { rest } from 'msw'
 

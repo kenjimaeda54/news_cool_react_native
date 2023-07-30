@@ -1,15 +1,20 @@
 import {
   ITopHeadlines,
   useTopHeadlinesServices,
-} from '@/services/top_headlines.services'
+} from '@/services/useTopHeadlinesServices'
 import { useTheme } from '@emotion/react'
 import { useNavigation } from '@react-navigation/native'
 import { useState } from 'react'
 import { ColorSchemeName, Platform } from 'react-native'
 
-type OmitValue = "fetchTopHeadlines" | "isSuccess"
+type OmitValue =
+  | 'fetchTopHeadlines'
+  | 'isSuccess'
+  | 'refetch'
+  | 'category'
 
-interface IUseHomeViewModel extends Omit<ITopHeadlines,OmitValue> {
+export interface IUseHomeViewModel
+  extends Omit<ITopHeadlines, OmitValue> {
   inputHeight: number
   handleHeightInput: (height: number) => void
   valueInput: string
@@ -17,6 +22,7 @@ interface IUseHomeViewModel extends Omit<ITopHeadlines,OmitValue> {
   returnPaddingIfPlataformIos: () => number
   returnColorText: (color: ColorSchemeName) => string
   handleNavigation: (uriWebView: string) => void
+  handleSelectedCategory: (newCategory: string) => void
 }
 
 export default function useHomeViewModel(): IUseHomeViewModel {
@@ -24,9 +30,21 @@ export default function useHomeViewModel(): IUseHomeViewModel {
   const [valueInput, setValueInput] = useState('')
   const { colors } = useTheme()
   const { navigate } = useNavigation()
-  const { data, isLoading } = useTopHeadlinesServices()
+  const {
+    dataTopHeadlines,
+    isLoadingHeadlines,
+    category,
+    refetch,
+    isFetchingHeadlines,
+  } = useTopHeadlinesServices()
 
   const handleHeightInput = (height: number) => setInputHeight(height)
+
+  function handleSelectedCategory(newCategory: string) {
+    //cuidado pra evitar bug o refetch precisa estar acima para o parametro que vai para fetch api
+    refetch()
+    category.current = newCategory
+  }
 
   const returnPaddingIfPlataformIos = () =>
     Platform.OS === 'android' ? 0 : 5
@@ -46,7 +64,9 @@ export default function useHomeViewModel(): IUseHomeViewModel {
     returnPaddingIfPlataformIos,
     returnColorText,
     handleNavigation,
-    data,
-    isLoading,
+    dataTopHeadlines,
+    isLoadingHeadlines,
+    handleSelectedCategory,
+    isFetchingHeadlines,
   }
 }
