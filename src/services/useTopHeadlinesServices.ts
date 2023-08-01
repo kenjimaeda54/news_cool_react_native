@@ -9,14 +9,14 @@ export interface ITopHeadlines {
   isLoadingHeadlines: boolean
   fetchTopHeadlines: (category: string) => Promise<TopHeadlinesModel>
   isSuccess: boolean
-  refetch: () => void
+  refetchTopHeadlines: () => void
   category: MutableRefObject<string>
   isFetchingHeadlines: boolean
 }
 
 async function fetchTopHeadlines(category: string) {
   const response = await api.get(
-    `/top-headlines?apiKey=e03da12b408445449464ceb16db4963a&country=us&category=${category}`
+    `/top-headlines?apiKey=b7da0d7da6db4db3b0da0cdb212d4f1c&country=us&category=${category}`
   )
   return response.data as TopHeadlinesModel
 }
@@ -29,7 +29,7 @@ export function useTopHeadlinesServices(): ITopHeadlines {
     isLoading: isLoadingHeadlines,
     isFetching: isFetchingHeadlines,
     isSuccess,
-    refetch,
+    refetch: refetchTopHeadlines,
   } = useQuery(
     [ConstantsUtils.queryIdTopHeadlines, category.current],
     () => fetchTopHeadlines(category.current)
@@ -40,7 +40,7 @@ export function useTopHeadlinesServices(): ITopHeadlines {
     isLoadingHeadlines,
     fetchTopHeadlines,
     isSuccess,
-    refetch,
+    refetchTopHeadlines,
     category,
     isFetchingHeadlines,
   }

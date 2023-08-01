@@ -1,4 +1,12 @@
 import {
+  ArticlesModel,
+  TopHeadlinesModel,
+} from '@/models/top_headlines_model'
+import {
+  ISearchTopHeadline,
+  useSearchTopHeadline,
+} from '@/services/useSearchTopHeadline'
+import {
   ITopHeadlines,
   useTopHeadlinesServices,
 } from '@/services/useTopHeadlinesServices'
@@ -10,19 +18,27 @@ import { ColorSchemeName, Platform } from 'react-native'
 type OmitValue =
   | 'fetchTopHeadlines'
   | 'isSuccess'
-  | 'refetch'
+  | 'refetchTopHeadlines'
   | 'category'
+  | 'refetchSearchTopHeadlines'
+  | 'fetchSearchTopHeadlines'
+  | 'search'
+  | 'dataTopHeadlines'
+  | 'dataSearchTopHeadlines'
+
+type IProtocols = ITopHeadlines & ISearchTopHeadline
 
 export interface IUseHomeViewModel
-  extends Omit<ITopHeadlines, OmitValue> {
+  extends Omit<IProtocols, OmitValue> {
   inputHeight: number
   handleHeightInput: (height: number) => void
   valueInput: string
-  setValueInput: (value: string) => void
   returnPaddingIfPlataformIos: () => number
   returnColorText: (color: ColorSchemeName) => string
   handleNavigation: (uriWebView: string) => void
   handleSelectedCategory: (newCategory: string) => void
+  handleSearchArticle: (word: string) => void
+  returnDataTopHeadlines: () => ArticlesModel[]
 }
 
 export default function useHomeViewModel(): IUseHomeViewModel {
@@ -34,16 +50,33 @@ export default function useHomeViewModel(): IUseHomeViewModel {
     dataTopHeadlines,
     isLoadingHeadlines,
     category,
-    refetch,
+    refetchTopHeadlines,
     isFetchingHeadlines,
   } = useTopHeadlinesServices()
+  const {
+    dataSearchTopHeadlines,
+    isFetchingSearchTopHeadlines,
+    isLoadingSearchTopHeadlines,
+    refetchSearchTopHeadlines,
+    search,
+  } = useSearchTopHeadline()
 
   const handleHeightInput = (height: number) => setInputHeight(height)
 
   function handleSelectedCategory(newCategory: string) {
+    setValueInput('')
     //cuidado pra evitar bug o refetch precisa estar acima para o parametro que vai para fetch api
-    refetch()
+    refetchTopHeadlines()
     category.current = newCategory
+  }
+
+  function handleSearchArticle(word: string) {
+    setValueInput(word)
+
+    if (word.length % 3 === 0 && word.length > 2) {
+      search.current = word
+      refetchSearchTopHeadlines()
+    }
   }
 
   const returnPaddingIfPlataformIos = () =>
@@ -53,6 +86,12 @@ export default function useHomeViewModel(): IUseHomeViewModel {
     return color === 'dark' ? colors.secondary : colors.white
   }
 
+  function returnDataTopHeadlines(): ArticlesModel[] {
+    return valueInput.length > 2
+      ? dataSearchTopHeadlines.articles
+      : dataTopHeadlines.articles
+  }
+
   const handleNavigation = (uriWebView: string) =>
     navigate('details', { uriWebView })
 
@@ -60,13 +99,15 @@ export default function useHomeViewModel(): IUseHomeViewModel {
     inputHeight,
     handleHeightInput,
     valueInput,
-    setValueInput,
     returnPaddingIfPlataformIos,
     returnColorText,
     handleNavigation,
-    dataTopHeadlines,
     isLoadingHeadlines,
     handleSelectedCategory,
     isFetchingHeadlines,
+    handleSearchArticle,
+    isFetchingSearchTopHeadlines,
+    isLoadingSearchTopHeadlines,
+    returnDataTopHeadlines,
   }
 }

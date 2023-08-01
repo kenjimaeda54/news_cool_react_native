@@ -4,6 +4,7 @@ import {
   Appearance,
   ColorSchemeName,
   Dimensions,
+  Text,
   View,
 } from 'react-native'
 import CardTopHeadlines from '@/components/card_top_headlines/CardTopHeadlines'
@@ -17,6 +18,7 @@ import { FlashList } from '@shopify/flash-list'
 import useHomeViewModel, {
   IUseHomeViewModel,
 } from '@/view_models/useHomeViewModel'
+import Empty from '@/components/empty/Empty'
 
 const { height, width } = Dimensions.get('screen')
 
@@ -33,20 +35,26 @@ export default function HomeScreen() {
 export function Content({ data }: IContent) {
   const { colors } = useTheme()
   const colorScheme = Appearance.getColorScheme()
+  const articles = data.returnDataTopHeadlines()
+
   return (
     <>
       {data.isLoadingHeadlines || data.isFetchingHeadlines ? (
         <LoadingCommon />
       ) : (
-        <View style={{ height, width }}>
+        <View
+          style={{ height, width, backgroundColor: colors.primary }}>
           <FlashList
             estimatedItemSize={230}
-            extraData={data.isLoadingHeadlines}
-            data={data.dataTopHeadlines.articles}
+            extraData={articles}
+            data={articles}
             testID={ConstantsUtils.testIdFlatlistNews}
+            ListEmptyComponent={<Empty />}
             style={{
               flex: 1,
               backgroundColor: colors.primary,
+              height,
+              width,
             }}
             ListHeaderComponent={
               <>
@@ -59,7 +67,7 @@ export function Content({ data }: IContent) {
                   returnPaddingIFPlataformIos={
                     data.returnPaddingIfPlataformIos
                   }
-                  onChangeText={data.setValueInput}
+                  onChangeText={data.handleSearchArticle}
                   placeholderTextColor={colors.secondary}
                   onContentSizeChange={(content) =>
                     data.handleHeightInput(
