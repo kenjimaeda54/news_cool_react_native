@@ -6,6 +6,7 @@ import {
   Dimensions,
   Text,
   View,
+  ViewProps,
 } from 'react-native'
 import CardTopHeadlines from '@/components/card_top_headlines/CardTopHeadlines'
 import ListHeader from '@/components/list_header_top_headlines/ListHeaderTopHeadlines'
@@ -22,14 +23,16 @@ import Empty from '@/components/empty/Empty'
 
 const { height, width } = Dimensions.get('screen')
 
-interface IContent {
+interface IContent extends ViewProps {
   data: IUseHomeViewModel
 }
 
 export default function HomeScreen() {
   const data = useHomeViewModel()
 
-  return <Content data={data} />
+  return (
+    <Content testID={ConstantsUtils.testIdContentHome} data={data} />
+  )
 }
 
 export function Content({ data }: IContent) {

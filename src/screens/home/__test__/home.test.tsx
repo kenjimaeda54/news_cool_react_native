@@ -10,6 +10,7 @@ import { Appearance } from 'react-native'
 import { useTopHeadlinesServices } from '@/services/useTopHeadlinesServices'
 import lightTheme from '@/themes/light.theme'
 import ListHeader from '@/components/list_header_top_headlines/ListHeaderTopHeadlines'
+import { ConstantsUtils } from '@/utils/constants'
 
 describe('HomeScreen', () => {
   const mockContentSize = {
@@ -29,6 +30,13 @@ describe('HomeScreen', () => {
       {children}
     </QueryClientProvider>
   )
+
+  it('should show LoadingCommon if isLoadingHeadlines or isFetchingHeadlines is true', () => {
+    const { getByTestId, debug } = render(<HomeScreen />)
+
+    const loading = getByTestId(ConstantsUtils.testIdLoadingHome)
+    console
+  })
 
   it('should the TextInput increase in size as you type', async () => {
     const { result: resultHomeViewModel, waitFor } = renderHook(
