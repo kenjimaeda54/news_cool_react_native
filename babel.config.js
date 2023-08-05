@@ -2,6 +2,12 @@ module.exports = {
   presets: ['module:metro-react-native-babel-preset'],
   plugins: [
     [
+      'module:react-native-dotenv',
+      {
+        safe: true,
+      },
+    ],
+    [
       'module-resolver',
       {
         root: '.',
@@ -19,6 +25,7 @@ module.exports = {
           '@/services': './src/services',
           '@/test': './src/test',
           '@/server': './src/test/server',
+          '@/client': './src/client',
         },
         extensions: [
           '.js',

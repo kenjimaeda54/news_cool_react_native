@@ -4,6 +4,7 @@ import api from './api'
 import { TopHeadlinesModel } from '@/models/top_headlines_model'
 import { MutableRefObject, useEffect, useRef } from 'react'
 import { format, sub } from 'date-fns'
+import { API_TOKEN } from '@env'
 
 export interface ISearchTopHeadline {
   dataSearchTopHeadlines: TopHeadlinesModel
@@ -24,7 +25,7 @@ async function fetchSearchTopHeadlines(search: string) {
   })
   const formatDateSub = format(resultSubDate, 'yyyy-MM-dd')
 
-  const url = `/top-headlines?apiKey=b7da0d7da6db4db3b0da0cdb212d4f1c&q=${search.trim()}&from=${formatDateNow}&to=${formatDateSub}`
+  const url = `/top-headlines?apiKey=${API_TOKEN}&q=${search.trim()}&from=${formatDateNow}&to=${formatDateSub}`
 
   const response = await api.get(url)
   return response.data as TopHeadlinesModel

@@ -3,6 +3,7 @@ import { useQuery } from '@tanstack/react-query'
 import api from './api'
 import { TopHeadlinesModel } from '@/models/top_headlines_model'
 import { MutableRefObject, useEffect, useRef } from 'react'
+import { API_TOKEN } from '@env'
 
 export interface ITopHeadlines {
   dataTopHeadlines: TopHeadlinesModel
@@ -16,7 +17,7 @@ export interface ITopHeadlines {
 
 async function fetchTopHeadlines(category: string) {
   const response = await api.get(
-    `/top-headlines?apiKey=b7da0d7da6db4db3b0da0cdb212d4f1c&country=us&category=${category}`
+    `/top-headlines?apiKey=${API_TOKEN}&country=us&category=${category}`
   )
   return response.data as TopHeadlinesModel
 }

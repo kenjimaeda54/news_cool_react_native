@@ -3,11 +3,15 @@ import { render } from '@testing-library/react-native'
 import ThemeProviderColorScheme from '../themes/ThemeProviderColorScheme'
 import { ThemeProvider, useTheme } from '@emotion/react'
 import darkTheme from '@/themes/dark.theme'
-import { SafeAreaProvider } from 'react-native-safe-area-context'
+import {
+  SafeAreaProvider,
+  initialWindowMetrics,
+} from 'react-native-safe-area-context'
 import { Appearance } from 'react-native'
 import lightTheme from '@/themes/light.theme'
 import { QueryClientProvider } from '@tanstack/react-query'
-import { queryClient } from '@/services/query_client'
+import { queryClient } from '@/client/query_client'
+import { mockClient } from '@/services/mock_client'
 
 type Options = Parameters<typeof render>[1]
 
@@ -17,7 +21,7 @@ const allTheProviders = ({ children }: { children: ReactNode }) => {
   const colorScheme = Appearance.getColorScheme()
 
   return (
-    <QueryClientProvider client={queryClient}>
+    <QueryClientProvider client={mockClient}>
       <SafeAreaProvider
         initialMetrics={{
           frame: { x: 0, y: 0, width: 0, height: 0 },

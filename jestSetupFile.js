@@ -1,12 +1,10 @@
-import mockSafeAreaContext from 'react-native-safe-area-context/jest/mock'
-
 export const mockNavigate = jest.fn()
 export const mockBackNavigate = jest.fn()
 export const uriWebViewJest =
   'https://images.unsplash.com/photo-1477332552946-cfb384aeaf1c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80'
 
 jest.mock('react-native/Libraries/Utilities/Platform', () => ({
-  OS: 'ios',
+  OS: 'android',
   select: () => null,
 }))
 
@@ -62,17 +60,3 @@ jest.mock(
     }
   }
 )
-
-// jest.mock('react-native-safe-area-context', () => {
-//   return {
-//     mockSafeAreaContext,
-//     useSafeAreaInsets() {
-//       return {
-//         top: 30,
-//         bottom: 20,
-//         left: 10,
-//         right: 10,
-//       }
-//     },
-//   }
-// })

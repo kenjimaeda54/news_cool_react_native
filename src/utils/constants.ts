@@ -3,7 +3,7 @@ export class ConstantsUtils {
   static testIdFlatlistNews = 'test id flatlist news'
   static testIdImageTopCardTopHeadlines =
     'test id image top card top headlines'
-  static testIdListExplore = 'test id image list explore'
+  static testIdItemExplore = 'test view list explore'
   static baseUrlApi = 'https://newsapi.org/v2'
   static queryIdTopHeadlines = 'QueryIdTopHeadlines'
   static testIdWebView = 'test id web view react native'
@@ -11,4 +11,7 @@ export class ConstantsUtils {
   static queryIdCategories = 'QueryIdCategories'
   static testIdContentHome = 'test id content home'
   static testIdLoadingHome = 'test id Loading Home'
+  static testIdViewHomeScreen = 'test id Screen Home View'
+  static testIdImageListExplore = 'test id Image List explore'
+  static testIdFlatListExplore = 'test id Flatlist Explore'
 }

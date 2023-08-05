@@ -1,129 +1,77 @@
 import { useTheme } from '@emotion/react'
 import * as Styles from './home.styles'
-import {
-  Appearance,
-  ColorSchemeName,
-  Dimensions,
-  Text,
-  View,
-  ViewProps,
-} from 'react-native'
+import { Appearance, Dimensions, FlatList, View } from 'react-native'
 import CardTopHeadlines from '@/components/card_top_headlines/CardTopHeadlines'
 import ListHeader from '@/components/list_header_top_headlines/ListHeaderTopHeadlines'
-import { dataCategories } from '@/mock/data_explore'
-import ListExploreCategory from '@/components/list_explore_category/ListExploreCategory'
+import ListExplore from './components/list_explore/ListExplore'
 import { ConstantsUtils } from '@/utils/constants'
 import LoadingCommon from '@/components/loading_common/LoadingCommon'
-import { IColorsTheme } from '@/declaration/theme'
-import { FlashList } from '@shopify/flash-list'
-import useHomeViewModel, {
-  IUseHomeViewModel,
-} from '@/view_models/useHomeViewModel'
+import useHomeViewModel from '@/view_models/useHomeViewModel'
 import Empty from '@/components/empty/Empty'
 
 const { height, width } = Dimensions.get('screen')
 
-interface IContent extends ViewProps {
-  data: IUseHomeViewModel
-}
-
 export default function HomeScreen() {
-  const data = useHomeViewModel()
-
-  return (
-    <Content testID={ConstantsUtils.testIdContentHome} data={data} />
-  )
-}
-
-export function Content({ data }: IContent) {
+  const {
+    returnDataTopHeadlines,
+    handleSelectedCategory,
+    returnColorText,
+    isLoadingHeadlines,
+    isFetchingHeadlines,
+    inputHeight,
+    valueInput,
+    returnPaddingIfPlataformIos,
+    handleSearchArticle,
+    handleHeightInput,
+  } = useHomeViewModel()
+  const data = returnDataTopHeadlines()
   const { colors } = useTheme()
   const colorScheme = Appearance.getColorScheme()
-  const articles = data.returnDataTopHeadlines()
 
   return (
-    <>
-      {data.isLoadingHeadlines || data.isFetchingHeadlines ? (
+    <View
+      testID={ConstantsUtils.testIdViewHomeScreen}
+      style={{ height, width, backgroundColor: colors.primary }}>
+      {isLoadingHeadlines ? (
         <LoadingCommon />
       ) : (
-        <View
-          style={{ height, width, backgroundColor: colors.primary }}>
-          <FlashList
-            estimatedItemSize={230}
-            extraData={articles}
-            data={articles}
-            testID={ConstantsUtils.testIdFlatlistNews}
-            ListEmptyComponent={<Empty />}
-            style={{
-              flex: 1,
-              backgroundColor: colors.primary,
-              height,
-              width,
-            }}
-            ListHeaderComponent={
-              <>
-                <ListHeader
-                  testID={ConstantsUtils.testIdHeaderFlatlist}
-                  inputHeight={data.inputHeight}
-                  accessibilityRole='search'
-                  multiline
-                  value={data.valueInput}
-                  returnPaddingIFPlataformIos={
-                    data.returnPaddingIfPlataformIos
-                  }
-                  onChangeText={data.handleSearchArticle}
-                  placeholderTextColor={colors.secondary}
-                  onContentSizeChange={(content) =>
-                    data.handleHeightInput(
-                      content.nativeEvent.contentSize.height + 7
-                    )
-                  }
-                  placeholder='Search article'
-                />
-                <Styles.Title>Explore</Styles.Title>
-                <FlashList
-                  data={dataCategories}
-                  showsHorizontalScrollIndicator={false}
-                  contentContainerStyle={{
-                    paddingRight: 20,
-                  }}
-                  style={{
-                    marginVertical: 20,
-                  }}
-                  estimatedItemSize={150}
-                  horizontal
-                  renderItem={({ item }) => (
-                    <ListExploreCategory
-                      onPress={() =>
-                        data.handleSelectedCategory(item.title)
-                      }
-                      uriImage={item.uriImage}
-                      title={
-                        <Styles.TitleTopCard
-                          numberOfLines={1}
-                          style={{
-                            color: data.returnColorText(colorScheme),
-                            textShadowColor: '#000',
-                            textShadowRadius: 16,
-                            textShadowOffset: {
-                              width: 0,
-                              height: 12,
-                            },
-                          }}>
-                          {item.title}
-                        </Styles.TitleTopCard>
-                      }
-                    />
-                  )}
-                />
-              </>
-            }
-            showsVerticalScrollIndicator={false}
-            renderItem={({ item }) => (
-              <CardTopHeadlines data={item} />
-            )}
-          />
-        </View>
+        <FlatList
+          data={data}
+          testID={ConstantsUtils.testIdFlatlistNews}
+          ListEmptyComponent={<Empty />}
+          style={{
+            flex: 1,
+            backgroundColor: colors.primary,
+            height,
+            width,
+          }}
+          ListHeaderComponent={
+            <>
+              <ListHeader
+                testID={ConstantsUtils.testIdHeaderFlatlist}
+                inputHeight={inputHeight}
+                accessibilityRole='search'
+                multiline
+                value={valueInput}
+                returnPaddingIFPlataformIos={
+                  returnPaddingIfPlataformIos
+                }
+                onChangeText={handleSearchArticle}
+                placeholderTextColor={colors.secondary}
+                onContentSizeChange={handleHeightInput}
+                placeholder='Search article'
+              />
+              <Styles.Title>Explore</Styles.Title>
+              <ListExplore
+                handleSelectedCategory={handleSelectedCategory}
+                color={returnColorText(colorScheme)}
+              />
+            </>
+          }
+          showsVerticalScrollIndicator={false}
+          renderItem={({ item }) => <CardTopHeadlines data={item} />}
+        />
       )}
-    </>
+    </View>
   )
 }

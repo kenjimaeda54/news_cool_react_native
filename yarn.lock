@@ -7,6 +7,11 @@
   resolved "https://registry.yarnpkg.com/@aashutoshrathi/word-wrap/-/word-wrap-1.2.6.tgz#bd9154aec9983f77b3a034ecaa015c2e4201f6cf"
   integrity sha512-1Yjs2SvM8TflER/OD3cOjhWWOZb58A2t7wpE2S9XfBYTiIl+XFhQG2bjy4Pu1I+EAlCNUzRDYDdFwFYUKvXcIA==
 
+"@adobe/css-tools@^4.0.1":
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/@adobe/css-tools/-/css-tools-4.2.0.tgz#e1a84fca468f4b337816fcb7f0964beb620ba855"
+  integrity sha512-E09FiIft46CmH5Qnjb0wsW54/YQd69LsxeKUOWawmws1XWvyFGURnAChH0mlr7YPFR1ofwvUQfcL0J3lMxXqPA==
+
 "@ampproject/remapping@^2.2.0":
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/@ampproject/remapping/-/remapping-2.2.1.tgz#99e8e11851128b8702cd57c33684f1d0f260b630"
@@ -1114,7 +1119,7 @@
   resolved "https://registry.yarnpkg.com/@babel/regjsgen/-/regjsgen-0.8.0.tgz#f0ba69b075e1f05fb2825b7fad991e7adbb18310"
   integrity sha512-x/rqGMdzj+fWZvCOYForTghzbtqPDZ5gPwaoNGHdgDfF2QA/XZbCBp4Moo5scrkAMPhB7z26XM/AaHuIJdgauA==
 
-"@babel/runtime@^7.0.0", "@babel/runtime@^7.12.5", "@babel/runtime@^7.18.3", "@babel/runtime@^7.20.0", "@babel/runtime@^7.21.0", "@babel/runtime@^7.8.4":
+"@babel/runtime@^7.0.0", "@babel/runtime@^7.12.5", "@babel/runtime@^7.18.3", "@babel/runtime@^7.20.0", "@babel/runtime@^7.21.0", "@babel/runtime@^7.8.4", "@babel/runtime@^7.9.2":
   version "7.22.6"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.22.6.tgz#57d64b9ae3cff1d67eb067ae117dac087f5bd438"
   integrity sha512-wDb5pWm4WDdF6LFUde3Jl8WzPA+3ZbxYqkC6xAXuD3irdEHN1k0NfTRrJD8ZD378SJ61miMLCqIOXYhd8x+AJQ==
@@ -2007,6 +2012,21 @@
     "@tanstack/query-core" "4.32.0"
     use-sync-external-store "^1.2.0"
 
+"@testing-library/jest-dom@^5.17.0":
+  version "5.17.0"
+  resolved "https://registry.yarnpkg.com/@testing-library/jest-dom/-/jest-dom-5.17.0.tgz#5e97c8f9a15ccf4656da00fecab505728de81e0c"
+  integrity sha512-ynmNeT7asXyH3aSVv4vvX4Rb+0qjOhdNHnO/3vuZNqPmhDpV/+rCSGwQ7bLcmU2cJ4dvoheIO85LQj0IbJHEtg==
+  dependencies:
+    "@adobe/css-tools" "^4.0.1"
+    "@babel/runtime" "^7.9.2"
+    "@types/testing-library__jest-dom" "^5.9.1"
+    aria-query "^5.0.0"
+    chalk "^3.0.0"
+    css.escape "^1.5.1"
+    dom-accessibility-api "^0.5.6"
+    lodash "^4.17.15"
+    redent "^3.0.0"
+
 "@testing-library/jest-native@^5.4.2":
   version "5.4.2"
   resolved "https://registry.yarnpkg.com/@testing-library/jest-native/-/jest-native-5.4.2.tgz#6b0c987cc57f8d900763e763025d00d26ccbc85f"
@@ -2109,7 +2129,7 @@
   dependencies:
     "@types/istanbul-lib-report" "*"
 
-"@types/jest@^29.5.3":
+"@types/jest@*", "@types/jest@^29.5.3":
   version "29.5.3"
   resolved "https://registry.yarnpkg.com/@types/jest/-/jest-29.5.3.tgz#7a35dc0044ffb8b56325c6802a4781a626b05777"
   integrity sha512-1Nq7YrO/vJE/FYnqYyw0FS8LdrjExSgIiHyKg7xPpn+yi8Q4huZryKnkJatN1ZRH89Kw2v33/8ZMB7DuZeSLlA==
@@ -2151,6 +2171,11 @@
   version "15.7.5"
   resolved "https://registry.yarnpkg.com/@types/prop-types/-/prop-types-15.7.5.tgz#5f19d2b85a98e9558036f6a3cacc8819420f05cf"
   integrity sha512-JCB8C6SnDoQf0cNycqd/35A7MjcnK+ZTqE7judS6o7utxUCg6imJg3QK2qzHKszlTjcj2cn+NwMB2i96ubpj7w==
+
+"@types/react-native-dotenv@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@types/react-native-dotenv/-/react-native-dotenv-0.2.0.tgz#32c58422a422c1adf68acce363ed791314d5a8e7"
+  integrity sha512-ZxX+dU/yoQc0jTk+/NWttkiuXceJyN5FpOSqDl0WynN5GDzxwH7OMruQ47qcY8llo2RD3irjvzJ9BwC8gDiq0A==
 
 "@types/react-native-vector-icons@^6.4.13":
   version "6.4.13"
@@ -2204,6 +2229,13 @@
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/@types/stack-utils/-/stack-utils-2.0.1.tgz#20f18294f797f2209b5f65c8e3b5c8e8261d127c"
   integrity sha512-Hl219/BT5fLAaz6NDkSuhzasy49dwQS/DSdu4MdggFB8zcXv7vflBI3xp7FEmkmdDkBUI2bPUNeMttp2knYdxw==
+
+"@types/testing-library__jest-dom@^5.9.1":
+  version "5.14.9"
+  resolved "https://registry.yarnpkg.com/@types/testing-library__jest-dom/-/testing-library__jest-dom-5.14.9.tgz#0fb1e6a0278d87b6737db55af5967570b67cb466"
+  integrity sha512-FSYhIjFlfOpGSRyVoMBMuS3ws5ehFQODymf3vlI7U1K8c7PHwWwFY7VREfmsuzHSOnoKs/9/Y983ayOs7eRzqw==
+  dependencies:
+    "@types/jest" "*"
 
 "@types/yargs-parser@*":
   version "21.0.0"
@@ -2439,6 +2471,13 @@ argparse@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/argparse/-/argparse-2.0.1.tgz#246f50f3ca78a3240f6c997e8a9bd1eac49e4b38"
   integrity sha512-8+9WqebbFzpX9OR+Wa6O29asIogeRMzcGtAINdpMHHyAg10f05aSFVBbcEqGf/PXw1EjAZ+q2/bEBg3DvurK3Q==
+
+aria-query@^5.0.0:
+  version "5.3.0"
+  resolved "https://registry.yarnpkg.com/aria-query/-/aria-query-5.3.0.tgz#650c569e41ad90b51b3d7df5e5eed1c7549c103e"
+  integrity sha512-b0P0sZPKtyu8HkeRAfCq0IfURZK+SuwMjY1UXGBU27wpAiTwQAIlq56IbIO+ytk/JjS1fMR14ee5WBBfKi5J6A==
+  dependencies:
+    dequal "^2.0.3"
 
 array-buffer-byte-length@^1.0.0:
   version "1.0.0"
@@ -2857,6 +2896,14 @@ chalk@^2.0.0:
     escape-string-regexp "^1.0.5"
     supports-color "^5.3.0"
 
+chalk@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/chalk/-/chalk-3.0.0.tgz#3f73c2bf526591f574cc492c51e2456349f844e4"
+  integrity sha512-4D3B6Wf41KOYRFdszmDqMCGq5VV/uMAB273JILmO+3jAlh8X4qDtdtgCR3fxtbLEMzSx22QdhnDcJvu2u1fVwg==
+  dependencies:
+    ansi-styles "^4.1.0"
+    supports-color "^7.1.0"
+
 chalk@^4.0.0, chalk@^4.1.0, chalk@^4.1.1, chalk@^4.1.2:
   version "4.1.2"
   resolved "https://registry.yarnpkg.com/chalk/-/chalk-4.1.2.tgz#aac4e2b7734a740867aeb16bf02aad556a1e7a01"
@@ -3140,6 +3187,11 @@ css-to-react-native@^3.0.0:
     css-color-keywords "^1.0.0"
     postcss-value-parser "^4.0.2"
 
+css.escape@^1.5.1:
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/css.escape/-/css.escape-1.5.1.tgz#42e27d4fa04ae32f931a4b4d4191fa9cddee97cb"
+  integrity sha512-YUifsXXuknHlUsmlgyY0PKzgPOr7/FjCePfHNt0jxm83wHZi44VDMQ7/fGNkjY3/jV1MC+1CmZbaHzugyeRtpg==
+
 csstype@^3.0.2:
   version "3.1.2"
   resolved "https://registry.yarnpkg.com/csstype/-/csstype-3.1.2.tgz#1d4bf9d572f11c14031f0436e1c10bc1f571f50b"
@@ -3235,6 +3287,11 @@ deprecated-react-native-prop-types@4.1.0:
     invariant "*"
     prop-types "*"
 
+dequal@^2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/dequal/-/dequal-2.0.3.tgz#2644214f1997d39ed0ee0ece72335490a7ac67be"
+  integrity sha512-0je+qPKHEMohvfRTCEo3CrPG6cAzAYgmzKyxRiYSSDkS6eGJdyVJm7WaYA5ECaAD9wLB2T4EEeymA5aFVcYXCA==
+
 destroy@1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/destroy/-/destroy-1.2.0.tgz#4803735509ad8be552934c67df614f94e66fa015"
@@ -3270,6 +3327,16 @@ doctrine@^3.0.0:
   integrity sha512-yS+Q5i3hBf7GBkd4KG8a7eBNNWNGLTaEwwYWUijIYM7zrlYDM0BFXHjjPWlWZ1Rg7UaddZeIDmi9jF3HmqiQ2w==
   dependencies:
     esutils "^2.0.2"
+
+dom-accessibility-api@^0.5.6:
+  version "0.5.16"
+  resolved "https://registry.yarnpkg.com/dom-accessibility-api/-/dom-accessibility-api-0.5.16.tgz#5a7429e6066eb3664d911e33fb0e45de8eb08453"
+  integrity sha512-X7BJ2yElsnOJ30pZF4uIIDfBEVgF4XEBxL9Bxhy6dnrm5hkzqmsWHGTiHqRiITNhMyFLyAiWndIJP7Z1NTteDg==
+
+dotenv@^16.3.1:
+  version "16.3.1"
+  resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-16.3.1.tgz#369034de7d7e5b120972693352a3bf112172cc3e"
+  integrity sha512-IPzF4w4/Rd94bA9imS68tZBaYyBWSCE47V1RGuMrB94iyTOIEwRmVL2x/4An+6mETpLrKJ5hQkB8W4kFAadeIQ==
 
 ee-first@1.1.1:
   version "1.1.1"
@@ -4569,7 +4636,17 @@ jest-config@^29.6.1:
     slash "^3.0.0"
     strip-json-comments "^3.1.1"
 
-jest-diff@^29.0.1, jest-diff@^29.6.1:
+jest-diff@^29.0.1, jest-diff@^29.6.2:
+  version "29.6.2"
+  resolved "https://registry.yarnpkg.com/jest-diff/-/jest-diff-29.6.2.tgz#c36001e5543e82a0805051d3ceac32e6825c1c46"
+  integrity sha512-t+ST7CB9GX5F2xKwhwCf0TAR17uNDiaPTZnVymP9lw0lssa9vG+AFyDZoeIHStU3WowFFwT+ky+er0WVl2yGhA==
+  dependencies:
+    chalk "^4.0.0"
+    diff-sequences "^29.4.3"
+    jest-get-type "^29.4.3"
+    pretty-format "^29.6.2"
+
+jest-diff@^29.6.1:
   version "29.6.1"
   resolved "https://registry.yarnpkg.com/jest-diff/-/jest-diff-29.6.1.tgz#13df6db0a89ee6ad93c747c75c85c70ba941e545"
   integrity sha512-FsNCvinvl8oVxpNLttNQX7FAq7vR+gMDGj90tiP7siWw1UdakWUGqrylpsYrpvj908IYckm5Y0Q7azNAozU1Kg==
@@ -4641,7 +4718,17 @@ jest-leak-detector@^29.6.1:
     jest-get-type "^29.4.3"
     pretty-format "^29.6.1"
 
-jest-matcher-utils@^29.0.1, jest-matcher-utils@^29.6.1:
+jest-matcher-utils@^29.0.1:
+  version "29.6.2"
+  resolved "https://registry.yarnpkg.com/jest-matcher-utils/-/jest-matcher-utils-29.6.2.tgz#39de0be2baca7a64eacb27291f0bd834fea3a535"
+  integrity sha512-4LiAk3hSSobtomeIAzFTe+N8kL6z0JtF3n6I4fg29iIW7tt99R7ZcIFW34QkX+DuVrf+CUe6wuVOpm7ZKFJzZQ==
+  dependencies:
+    chalk "^4.0.0"
+    jest-diff "^29.6.2"
+    jest-get-type "^29.4.3"
+    pretty-format "^29.6.2"
+
+jest-matcher-utils@^29.6.1:
   version "29.6.1"
   resolved "https://registry.yarnpkg.com/jest-matcher-utils/-/jest-matcher-utils-29.6.1.tgz#6c60075d84655d6300c5d5128f46531848160b53"
   integrity sha512-SLaztw9d2mfQQKHmJXKM0HCbl2PPVld/t9Xa6P9sgiExijviSp7TnZZpw2Fpt+OI3nwUO/slJbOfzfUMKKC5QA==
@@ -5062,7 +5149,7 @@ lodash.throttle@^4.1.1:
   resolved "https://registry.yarnpkg.com/lodash.throttle/-/lodash.throttle-4.1.1.tgz#c23e91b710242ac70c37f1e1cda9274cc39bf2f4"
   integrity sha512-wIkUCfVKpVsWo3JSZlc+8MB5it+2AN5W8J7YVMST30UrvcQNZ1Okbj+rbVniijTWE6FGYy4XJq/rHkas8qJMLQ==
 
-lodash@^4.17.21:
+lodash@^4.17.15, lodash@^4.17.21:
   version "4.17.21"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
   integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
@@ -5920,10 +6007,19 @@ pretty-format@^26.5.2, pretty-format@^26.6.2:
     ansi-styles "^4.0.0"
     react-is "^17.0.1"
 
-pretty-format@^29.0.0, pretty-format@^29.0.3, pretty-format@^29.6.1:
+pretty-format@^29.0.0, pretty-format@^29.6.1:
   version "29.6.1"
   resolved "https://registry.yarnpkg.com/pretty-format/-/pretty-format-29.6.1.tgz#ec838c288850b7c4f9090b867c2d4f4edbfb0f3e"
   integrity sha512-7jRj+yXO0W7e4/tSJKoR7HRIHLPPjtNaUGG2xxKQnGvPNRkgWcQ0AZX6P4KBRJN4FcTBWb3sa7DVUJmocYuoog==
+  dependencies:
+    "@jest/schemas" "^29.6.0"
+    ansi-styles "^5.0.0"
+    react-is "^18.0.0"
+
+pretty-format@^29.0.3, pretty-format@^29.6.2:
+  version "29.6.2"
+  resolved "https://registry.yarnpkg.com/pretty-format/-/pretty-format-29.6.2.tgz#3d5829261a8a4d89d8b9769064b29c50ed486a47"
+  integrity sha512-1q0oC8eRveTg5nnBEWMXAU2qpv65Gnuf2eCQzSjxpWFkPaPARwqZZDGuNE0zPAZfTCHzIk3A8dIjwlQKKLphyg==
   dependencies:
     "@jest/schemas" "^29.6.0"
     ansi-styles "^5.0.0"
@@ -6034,6 +6130,13 @@ react-is@^17.0.1:
   version "17.0.2"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-17.0.2.tgz#e691d4a8e9c789365655539ab372762b0efb54f0"
   integrity sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w==
+
+react-native-dotenv@^3.4.9:
+  version "3.4.9"
+  resolved "https://registry.yarnpkg.com/react-native-dotenv/-/react-native-dotenv-3.4.9.tgz#621c5b0c1d0c5c7f569bfe5a1d804bec7885c010"
+  integrity sha512-dbyd+mcy7SUzxEgmt33TRf1FGcNe6swJhXmB0unKkI49F7+pidog9kPtjxMLTAfmKA8gcN2XHQSKltGfGbGCLQ==
+  dependencies:
+    dotenv "^16.3.1"
 
 react-native-fast-image@^8.6.3:
   version "8.6.3"

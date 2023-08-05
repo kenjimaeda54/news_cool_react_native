@@ -4,7 +4,7 @@ import {
   QueryClientProvider,
 } from '@tanstack/react-query'
 import { renderHook } from '@testing-library/react-hooks'
-import { queryClient } from '@/services/query_client'
+import { queryClient } from '@/client/query_client'
 import { ReactNode } from 'react'
 import { act } from '@testing-library/react-native'
 import { useTopHeadlinesServices } from '../useTopHeadlinesServices'

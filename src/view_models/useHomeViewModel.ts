@@ -13,7 +13,7 @@ import {
 import { useTheme } from '@emotion/react'
 import { useNavigation } from '@react-navigation/native'
 import { useState } from 'react'
-import { ColorSchemeName, Platform } from 'react-native'
+import { ColorSchemeName, NativeSyntheticEvent, Platform, TextInputContentSizeChangeEventData } from 'react-native'
 
 type OmitValue =
   | 'fetchTopHeadlines'
@@ -31,7 +31,7 @@ type IProtocols = ITopHeadlines & ISearchTopHeadline
 export interface IUseHomeViewModel
   extends Omit<IProtocols, OmitValue> {
   inputHeight: number
-  handleHeightInput: (height: number) => void
+  handleHeightInput: (event: NativeSyntheticEvent<TextInputContentSizeChangeEventData>) => void
   valueInput: string
   returnPaddingIfPlataformIos: () => number
   returnColorText: (color: ColorSchemeName) => string
@@ -61,9 +61,9 @@ export default function useHomeViewModel(): IUseHomeViewModel {
     search,
   } = useSearchTopHeadline()
 
-  const handleHeightInput = (height: number) => setInputHeight(height)
+  const handleHeightInput = (event: NativeSyntheticEvent<TextInputContentSizeChangeEventData>) => setInputHeight(event.nativeEvent.contentSize.height + 7)
 
-  function handleSelectedCategory(newCategory: string) {
+  function handleSelectedCategory(newCategory: string,calback?: (newCategory: string) => void) {
     setValueInput('')
     //cuidado pra evitar bug o refetch precisa estar acima para o parametro que vai para fetch api
     refetchTopHeadlines()
