@@ -6,7 +6,7 @@ Aplicativo de noticias, podendo selecionar as categorias ou buscar um artigo
 - Reforcei o uso de testes na aplicação a maior dificuldade encontrada foi falta dependencias
 - Abaixo algumas libs que usei e depencias que aulixiaram criar tests em react native
 
-´´´ text
+´´´json
 
  "@testing-library/jest-dom": "^5.17.0",
  "@testing-library/jest-native": "^5.4.2",
