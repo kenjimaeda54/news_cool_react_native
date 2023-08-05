@@ -6,14 +6,14 @@ Aplicativo de noticias, podendo selecionar as categorias ou buscar um artigo
 - Reforcei o uso de testes na aplicação a maior dificuldade encontrada foi falta dependencias
 - Abaixo algumas libs que usei e depencias que aulixiaram criar tests em react native
 
-´´´json
+```txt
 
  "@testing-library/jest-dom": "^5.17.0",
  "@testing-library/jest-native": "^5.4.2",
  "@testing-library/react-hooks": "^8.0.1",
  "@testing-library/react-native": "^12.1.2",
 
-´´´
+```
 
 
 ##
@@ -22,7 +22,7 @@ Aplicativo de noticias, podendo selecionar as categorias ou buscar um artigo
 
 
 
-´´´typescript
+```typescript
  it('should the TextInput increase in size as you type', async () => {
     const { getByRole } = render(
       <ListHeader
@@ -44,13 +44,13 @@ Aplicativo de noticias, podendo selecionar as categorias ou buscar um artigo
     expect(mockHandleHeightInput).toHaveBeenCalledWith(40)
   })
 
-´´´
+```
 ## 
 - Aprendi a usar novos mocks como Mockar a plataforma em uso, pois conforme se fosse IOS colocava um padding no input se fosse Android ficava zero
 - No App havia possibilidade de modo ligth e dark, escolhi trabalhar com emotion para estilos, então implementei dois themas e conforme mudava o colorScheme alterava entre ligth e dark
 - Criei um componente que tratava isso, coloquei no topo da hirarquia
 
-´´´typescript
+```typescript
 
 // theme provider
 import {ThemeProvider} from '@emotion/react';
@@ -115,7 +115,7 @@ export default function App() {
 }
 
 
-´´´
+```
 
 ##
 - Dicas de erros que peguei ao longo da aplicação, quando começar uma lib acusar erro de ***Jest Failure - SyntaxError: Cannot use import statement outside a module*** precisa ignorar ela no transformIgnorePatterns, coloque o nome da lib  dentro desse array
@@ -124,7 +124,7 @@ export default function App() {
 - Se react query começar acusar erro(***Jest did not exit one second after the test run completed resolve**) e recomendado zerar o cacheTime  colocar false o retry, pra isso criei um mock para o client do react query
 - Tambem comecei a pegar erro de import ***You are trying to `import` a file after the Jest environment has been torn down***, parra resolver usei o useFakeTimers()
 
-´´´typescript
+```typescript
 
 "transformIgnorePatterns": [   "node_modules/(?!(@react-native|react-native|react-native-vector-icons|react-native-webview)/)" ],
 
@@ -183,7 +183,7 @@ it('should render the flatlist with the correct data', async () => {
   })
 
 
-´´´
+```
 
 
 
