@@ -1,10 +1,11 @@
 # News cool
-Aplicativo de noticias, podendo selecionar as categorias ou buscar um artigo
+Aplicativo de notícias, podendo selecionar as categorias ou buscar um artigo
+
 
 ![test](./test.png)
 # Feature
-- Reforcei o uso de testes na aplicação a maior dificuldade encontrada foi falta dependencias
-- Abaixo algumas libs que usei e depencias que aulixiaram criar tests em react native
+- Reforcei o uso de testes na aplicação, a maior dificuldade encontrada foi falta dependências
+- Abaixo algumas bibliotecas que usei e dependências que auxiliaram criar testes em react native
 
 ```txt
 
@@ -17,8 +18,8 @@ Aplicativo de noticias, podendo selecionar as categorias ou buscar um artigo
 
 
 ##
-- Importante dos testes é garantir que o comportamento do usuario ao usar o App não havera bugs
-- Exemplo precisava testar uma função que alterava o tamanho do texto, eu não preciso usar a função real ou seja testar detalhes de implmentação, posso usar um mock, pois essa abordagem ja garanto que o comportamento esperado sera alcançado
+- Importante dos testes é garantir que o comportamento do usuário ao usar o App não haveria bugs
+- Exemplo precisava testar uma função que alterava o tamanho do texto, eu não preciso usar a função real, ou seja, testar detalhes de implementação, posso usar um mock, pois essa abordagem  garanto que o comportamento esperado será alcançado
 
 
 
@@ -47,8 +48,8 @@ Aplicativo de noticias, podendo selecionar as categorias ou buscar um artigo
 ```
 ## 
 - Aprendi a usar novos mocks como Mockar a plataforma em uso, pois conforme se fosse IOS colocava um padding no input se fosse Android ficava zero
-- No App havia possibilidade de modo ligth e dark, escolhi trabalhar com emotion para estilos, então implementei dois themas e conforme mudava o colorScheme alterava entre ligth e dark
-- Criei um componente que tratava isso, coloquei no topo da hirarquia
+- No App havia possibilidade de modo ligth e dark, escolhi trabalhar com emotion para estilos, então implementei dois temas é conforme mudava o colorScheme alterava entre ligth e dark
+- Criei um componente que tratava isso, coloquei no topo da hierarquia
 
 ```typescript
 
@@ -118,11 +119,11 @@ export default function App() {
 ```
 
 ##
-- Dicas de erros que peguei ao longo da aplicação, quando começar uma lib acusar erro de ***Jest Failure - SyntaxError: Cannot use import statement outside a module*** precisa ignorar ela no transformIgnorePatterns, coloque o nome da lib  dentro desse array
+- Dicas de erros que peguei ao longo da aplicação, quando começar uma biblieoteca acusar erro de ***Jest Failure - SyntaxError: Cannot use import statement outside a module*** precisa ignorar ela no transformIgnorePatterns, coloque o nome da lib  dentro desse array
 - Repara abaixo que ignorei o react-native-vector-icons e react-native-webvieww
 - Para usar webView precisei mocar TurboModule
-- Se react query começar acusar erro(***Jest did not exit one second after the test run completed resolve**) e recomendado zerar o cacheTime  colocar false o retry, pra isso criei um mock para o client do react query
-- Tambem comecei a pegar erro de import ***You are trying to `import` a file after the Jest environment has been torn down***, parra resolver usei o useFakeTimers()
+- Se react query começar acusar erro(***Jest did not exit one second after the test run completed resolve**) e recomendado zerar o cacheTime  colocar false o retry, para isso criei um mock para o client do react query
+- Também comecei a pegar erro de import ***You are trying to `import` a file after the Jest environment has been torn down***, parra resolver usei o useFakeTimers()
 
 ```typescript
 
